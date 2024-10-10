@@ -1,9 +1,12 @@
 import './bootstrap';
-import './alerts.js';
+import 'alertifyjs/build/css/alertify.css';
+import alertify from 'alertifyjs';
+
+window.alertify = alertify;
+
 
 import Alpine from 'alpinejs';
-import Swal from "sweetalert2";
 
 window.Alpine = Alpine;
-window.Swal = Swal;
+
 Alpine.start();

@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @vite('resources/css/app.css', 'resources/js/app.js')
+    @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     <title>Gestión de Usuarios</title>
 </head>
 <body>
 <x-navbar />
 <div class="container mx-auto mt-5">
     <h1 class="text-2xl font-bold mb-4">Gestión de Usuarios</h1>
-    <!-- swal-->
-    <script>
-        window.Laravel = {!! json_encode([
-            'statusMessage' => session('status')
-        ]) !!};
-    </script>
     <table class="min-w-full bg-white">
         <thead>
         <tr>
@@ -45,10 +40,23 @@
         @endforeach
         </tbody>
     </table>
-    <script>
-        console.log(window.Laravel.statusMessage);
-    </script>
 </div>
+
+<script>
+    document.querySelectorAll('.deleteButton').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const form = this.closest('form');
+            alertify.confirm('Confirmar eliminación', '¿Estás seguro de que deseas eliminar este usuario?',
+                function() {
+                    form.submit();
+                },
+                function() {
+                    alertify.error('Cancelado');
+                });
+        });
+    });
+</script>
 </body>
 </html>
 
