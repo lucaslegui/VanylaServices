@@ -3,14 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\AdminMiddleware; // Import the AdminMiddleware
+use App\Http\Middleware\AdminMiddleware;
 
-// Ruta principal para la página de inicio
+
 Route::get('/', function () {
     return view('home');
 });
 
-// Ruta protegida para el dashboard, requiere autenticación y verificación de correo electrónico
+
 Route::get('/dashboard', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('dashboard');

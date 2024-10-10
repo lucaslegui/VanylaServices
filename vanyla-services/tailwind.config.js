@@ -1,6 +1,8 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 
+
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -13,8 +15,16 @@ export default {
         './resources/views/**/**/.blade.php'
     ],
 
+
     theme: {
         extend: {
+            colors: {
+                primary: {
+                    primary: '#be65ea',
+                    secondary: '#46dec8',
+                    accent: '#d3c5ec',
+                }
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
